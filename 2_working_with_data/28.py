@@ -5,4 +5,5 @@
 def enumerate_list(l):
     return [(i, l[i]) for i in range(len(l))]
 
-print enumerate_list(["a", "b", "c"])
+for index, item in enumerate_list(["a", "b", "c"]):
+    print index, item
