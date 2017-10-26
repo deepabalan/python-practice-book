@@ -3,22 +3,21 @@
 
 
 class reverse_iter:
-    def __init__(self, n):
-        self.n = n
+    def __init__(self, data):
+        self.data = data
+        self.index = len(data)
 
     def __iter__(self):
         return self
 
     def next(self):
-        while True:
-            if len(self.n) > 0:
-                return self.n.pop()
-            else:
-                raise StopIteration()
+        if self.index == 0:
+            raise StopIteration
+        else:
+            self.index -= 1
+            return self.data[self.index]
 
 it = reverse_iter([1, 2, 3, 4])
-print it.next()
-print it.next()
-print it.next()
-print it.next()
-print it.next()
+
+for x in it:
+    print x
